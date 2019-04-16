@@ -9,20 +9,24 @@ import Foundation
 import SwiftyGPIO
 
 final class Servo {
-    let pwms = SwiftyGPIO.hardwarePWMs(for: .RaspberryPiPlusZero)
-    let pin: GPIOName = .P18
-    var servo: PWMOutput!
+    typealias PWMs = [Int: [GPIOName: PWMOutput]]
 
-    static let shared: Servo = Servo()
+    var pwms: PWMs!
+    var pin: GPIOName!
+    var servo: PWMOutput!
 
     private let periodNs: Int = 20_000_000
     private let duty: (on: Float, off: Float) = (3, 6)
 
-    private init() {
+    init(_ board: SupportedBoard, pin: GPIOName) {
+        pwms = SwiftyGPIO.hardwarePWMs(for: board)
+        self.pin = pin
+
         guard let servo = pwms?[0]?[pin] else {
             print("Can not found \(pin.rawValue) pin")
             exit(EXIT_FAILURE)
         }
+
         self.servo = servo
         cofigureServo()
     }

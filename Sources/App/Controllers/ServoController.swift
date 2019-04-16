@@ -14,6 +14,7 @@ fileprivate struct ServoState: Codable {
 
 final class ServoController {
     private var servoState: Bool = false
+    private let servo: Servo = Servo(.RaspberryPiPlusZero, pin: .P18)
 
     private func createJSON(_ state: Bool) -> HTTPResponse {
         var response = HTTPResponse()
@@ -30,8 +31,9 @@ final class ServoController {
 
     func toggle(_ request: Request) -> Future<HTTPStatus> {
         return request.future().map { [weak self] in
-            Servo.shared.toggle()
-            self?.servoState.toggle()
+            guard let self = self else { return }
+            self.servo.toggle()
+            self.servoState.toggle()
         }.transform(to: .ok)
     }
 }
