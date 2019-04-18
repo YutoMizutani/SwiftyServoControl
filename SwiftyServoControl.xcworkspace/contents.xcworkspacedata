@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Server/servo/servo.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Client/ServoClient/ServoClient.xcodeproj">
+   </FileRef>
 </Workspace>
