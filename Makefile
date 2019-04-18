@@ -37,15 +37,11 @@ SERVER=$(SERVER_PATH)
 open:
 	open $(WORKSPACE)
 
-
 # Dependencies
 deps-macos:
 	$(HOMEBREW_COMMAND) install libressl ios-sim
 deps-debian:
 	$(APT_COMMAND) install libssl-dev
-
-# Install
-
 
 
 # Build
