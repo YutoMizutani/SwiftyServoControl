@@ -37,13 +37,24 @@ SERVER=$(SERVER_PATH)
 open:
 	open $(WORKSPACE)
 
+# Install
+install-swift-raspberry-pi-zero:
+	curl -s https://packagecloud.io/install/repositories/swift-arm/release/script.deb.sh | sudo bash \
+		&& $(APT_COMMAND) install swift5
+install-swift-raspberry-pi-without-zero:
+	curl -s https://packagecloud.io/install/repositories/swift-arm/release/script.deb.sh | sudo bash \
+		&& $(APT_COMMAND) install swift4rpi01
+install-vapor-cli-tools:
+	$(HOMEBREW_COMMAND) tap vapor/tap \
+		&& $(HOMEBREW_COMMAND) install vapor/tap/vapor
+
 # Dependencies
+deps-debian:
+	$(APT_COMMAND) install libssl-dev
 deps-macos:
 	$(HOMEBREW_COMMAND) install libressl ios-sim
 	cd $(SERVER_PATH) \
 		&& $(SWIFT_COMMAND) package generate-xcodeproj
-deps-debian:
-	$(APT_COMMAND) install libssl-dev
 
 # Build
 build-server:
