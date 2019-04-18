@@ -40,9 +40,10 @@ open:
 # Dependencies
 deps-macos:
 	$(HOMEBREW_COMMAND) install libressl ios-sim
+	cd $(SERVER_PATH) \
+		&& $(SWIFT_COMMAND) package generate-xcodeproj
 deps-debian:
 	$(APT_COMMAND) install libssl-dev
-
 
 # Build
 build-server:
@@ -53,6 +54,7 @@ build-client:
 		-configuration Debug \
 		-verbose \
 		-scheme "$(CLIENT_NAME)"
+
 # Run
 run-server:
 	cd $(SERVER_PATH) \
