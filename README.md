@@ -5,7 +5,10 @@
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/YutoMizutani/SushiWallet/blob/master/LICENSE)
 
 Servo control IoT server using Raspberry Pi and client using iPhone developed only Swift.
-[See movie](https://twitter.com/EXPENSIVE_MAN/status/1118320693358153728)
+
+[URLSession](https://developer.apple.com/documentation/foundation/urlsession) (iPhone X) -> [Vapor](https://github.com/vapor/vapor) ([Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/)) -> [SwiftyGPIO](https://www.github.com/uraimo/SwiftyGPIO) (Raspberry Pi Zero W) -> Servo motor ([MG996R](https://servodatabase.com/servo/towerpro/mg996r))
+
+[See movie here](https://twitter.com/EXPENSIVE_MAN/status/1118320693358153728)
 
 <img src="https://raw.githubusercontent.com/YutoMizutani/SwiftyServoControl/master/pic/photo.jpg" width="300">
 
