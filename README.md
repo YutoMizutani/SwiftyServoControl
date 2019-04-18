@@ -106,7 +106,7 @@ HOSTNAME: (detault: localhost)
 
 PORT:     (detault: 8080)
 
-<img src="https://raw.githubusercontent.com/YutoMizutani/SwiftyServoControl/master/pic/pxcode-screenshot.png" width="300">
+<img src="https://raw.githubusercontent.com/YutoMizutani/SwiftyServoControl/master/pic/xcode-screenshot.png" width="800">
 
 ## Test
 
