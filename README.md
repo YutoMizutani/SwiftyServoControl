@@ -90,7 +90,7 @@ $ make run-server
 
 ##### Set your own hostname and port number,
 ```
-$ make run-server --hostname localhost --port 8080
+$ make run-server HOSTNAME=localhost PORT=8080
 ```
 
 HOSTNAME: (detault: localhost)
